@@ -169,24 +169,39 @@
         <ul class="glide__slides">
           <li class="glide__slide">
             <video muted loop autoplay defaultMuted playsinline webkit-playsinline class="teaser-video-0">
-              <source src="supp/final_video/car_turn_1_v6.mp4"  type="video/mp4"/>
+              <source src="static/teaser/walk_man.mp4"  type="video/mp4"/>
             </video>
           </li>
           <li class="glide__slide">
             <video muted loop defaultMuted playsinline webkit-playsinline class="teaser-video-1">
-              <source src="supp/final_video/boat_v8.mp4" type="video/mp4"/>
+              <source src="static/teaser/wolf.mp4" type="video/mp4"/>
             </video>
           </li>
           <li class="glide__slide">
             <video muted loop defaultMuted playsinline webkit-playsinline class="teaser-video-2">
-              <source src="supp/final_video/woman_running_v6.mp4" type="video/mp4"/>
+              <source src="static/teaser/car_turn.mp4" type="video/mp4"/>
             </video>
           </li>
           <li class="glide__slide">
             <video muted loop defaultMuted playsinline webkit-playsinline class="teaser-video-3">
-              <source src="supp/final_video/drift_v9.mp4" type="video/mp4"/>
+              <source src="static/teaser/woman_running.mp4" type="video/mp4"/>
             </video>
           </li>
+          <li class="glide__slide">
+            <video muted loop defaultMuted playsinline webkit-playsinline class="teaser-video-4">
+              <source src="static/teaser/car_shadow.mp4" type="video/mp4"/>
+            </video>
+          </li>
+          <li class="glide__slide">
+            <video muted loop defaultMuted playsinline webkit-playsinline class="teaser-video-5">
+              <source src="static/teaser/drift_chicane.mp4" type="video/mp4"/>
+            </video>
+          </li>
+          <!-- <li class="glide__slide">
+            <video muted loop defaultMuted playsinline webkit-playsinline class="teaser-video-6">
+              <source src="static/teaser/flamingo.mp4" type="video/mp4"/>
+            </video>
+          </li> -->
         </ul>
       </div>
 
@@ -199,6 +214,9 @@
         <span class="glide__bullet" data-glide-dir="=1"></span>
         <span class="glide__bullet" data-glide-dir="=2"></span>
         <span class="glide__bullet" data-glide-dir="=3"></span>
+        <span class="glide__bullet" data-glide-dir="=4"></span>
+        <span class="glide__bullet" data-glide-dir="=5"></span>
+        <!-- <span class="glide__bullet" data-glide-dir="=6"></span> -->
       </div>
     </div>
   </div>
@@ -214,23 +232,30 @@
         <h2 class="title is-3 hr-lines">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Recent advancements in diffusion-based models have demonstrated significant 
-            success in generating images from text. However, video editing models have 
-            not yet reached the same level of visual quality and user control. To address 
-            this, we introduce RAVE, a zero-shot video editing method that leverages 
-            pre-trained text-to-image diffusion models without additional training. 
-            RAVE takes an input video and a text prompt to produce high-quality videos 
-            while preserving the original motion and semantic structure. It employs a 
-            novel noise shuffling strategy, leveraging spatio-temporal interactions between 
-            frames, to produce temporally consistent videos faster than existing methods. 
-            It is also efficient in terms of memory requirements, allowing it to handle 
-            longer videos.  RAVE is capable of a wide range of edits, from local attribute 
-            modifications to shape transformations. In order to demonstrate the versatility 
-            of RAVE, we create a comprehensive video evaluation dataset ranging from 
-            object-focused scenes to complex human activities like dancing and typing, and 
-            dynamic scenes featuring swimming fish and boats. Our qualitative and quantitative 
-            experiments highlight the effectiveness of RAVE in diverse video editing scenarios 
-            compared to existing methods.
+            Despite the typical inversion-then-editing paradigm using
+            text-to-image (T2I) models has demonstrated promising results,
+            directly extending it to text-to-video (T2V) models still 
+            suffers severe artifacts such as color flickering and content 
+            distortion. Consequently, current video editing methods 
+            primarily rely on T2I models, which inherently lack 
+            temporal-coherence generative ability, often resulting in inferior 
+            editing results. In this paper, we attribute the failure of the typical editing paradigm to: 
+            1) Tightly Spatialtemporal Coupling. The vanilla pivotal-based inversion 
+            strategy struggles to disentangle spatial-temporal information
+            in the video diffusion model; 
+            2) Complicated Spatialtemporal Layout. The vanilla cross-attention control is deficient
+            in preserving the unedited content. To address these
+            limitations, we propose a spatial-temporal decoupled guidance
+            (STDG) and multi-frame null-text optimization strategy
+            to provide pivotal temporal cues for more precise pivotal
+            inversion. Furthermore, we introduce a self-attention
+            control strategy to maintain higher fidelity for precise partial content editing. 
+            Experimental results demonstrate that our method (termed VideoDirector) effectively harnesses
+            the powerful temporal generation capabilities of T2V models,
+            producing edited videos with state-of-the-art performance
+            in accuracy, motion smoothness, realism, and fidelity
+            to unedited content.
+            .
           </p>
         </div>
       </div>
@@ -239,32 +264,106 @@
 </section>
 <!-- End paper abstract -->
 
-<!-- Paper poster -->
+<!-- Paper motivation -->
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
-        <div class="column is-">
-          <h2 class="title is-3 hr-lines">Method</h2>
-          <div class="content has-text-justified">
-        
-      <table width="800" border="0">
-        <tbody>
-          <tr>
-            <td colspan="3">
-              <p>
-                Our process begins by performing a DDIM inversion with the pre-trained T2I model and condition extraction with an off-the-shelf condition preprocessor applied to the input video ($V_K$). These conditions are subsequently input into ControlNet. In the RAVE video editing process, diffusion denoising is performed for T timesteps using condition grids ($C_L$), latent grids ($G_L^t$), and the target text prompt as input for ControlNet. Random shuffling is applied to the latent grids ($G_L^t$) and condition grids ($C_L$) at each denoising step. After T timesteps, the latent grids are rearranged, and the final output video ($V_K^*$) is obtained.</p>
-            </td>
-          </tr>
-            <img src="static/images/FIG3.jpg" alt="model_overview"/>
-        </tbody>
-      </table>
+        <div class="column">
+          <h2 class="title is-3 hr-lines">Motivation</h2>
+          <!-- Images and captions -->
+          <div class="columns is-centered" style="gap: 30px;"> <!-- 调整 gap 值 -->
+            <!-- First Image with Caption -->
+            <div class="column" style="text-align: left;">
+              <figure style="text-align: left;">
+                <img src="static/images/2_motivation_v0.10(a).jpg" alt="Model Overview 1" style="max-width: 100%; height: auto;">
+                <figcaption style="margin-top: 10px; font-size: 14px; color: #555; text-align: left;">
+                  (a) The prompt-to-prompt and null-text optimization are integrated 
+                  directly into the T2V generation model to reconstruct the input videos.
+                  The results present challenges for the typical editing paradigm in 
+                  accurately reconstructing the original videos.
+
+                </figcaption>
+              </figure>
+            </div>
+            <!-- Second Image with Caption -->
+            <div class="column" style="text-align: left;">
+              <figure style="text-align: left;">
+                <img src="static/images/2_motivation_v0.10(b).jpg" alt="Model Overview 2" style="max-width: 100%; height: auto;">
+                <figcaption style="margin-top: 10px; font-size: 14px; color: #555; text-align: left;">
+                  (b) Our method achieves accurate reconstruction of input videos by incorporating multi-frame Null-text 
+                  optimization and spatial-temporal decoupled guidance.
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+          <!-- General description -->
+          <div style="margin-top: 20px; text-align: left;">
+            <p style="font-size: 16px; color: #333;">
+              Figure 1. <strong><em>Principle visualization of our approach.</em></strong> Comparison of diffusion pivotal inversion using a T2V generation model 
+              integrated with vanilla null-text optimization (a) and our proposed guidance (b). Our approach constrains the reverse diffusion trajectory
+              during video generation to align with DDIM inversion, enabling precise reconstruction of the input video.
+            </p>
+          </div>
+        </div>
       </div>
-      </div>
+    </div>
+  </div>
 </section>
-<!--End paper poster -->
+<!-- End paper motivation -->
 
-
+<!-- Paper motivation -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3 hr-lines">Method</h2>
+          <!-- Images and captions -->
+          <div class="columns is-centered" style="gap: 5px; align-items: center;"> 
+            <!-- First Image with Caption -->
+            <div class="column is-8" style="text-align: left; display: flex; flex-direction: column; justify-content: center;"> <!-- 居中 -->
+              <figure style="text-align: left;">
+                <img src="static/images/3_optimize_pipeline_v0.9.jpg" 
+                     alt="Model Overview 1" 
+                     style="width: 100%; height: auto; object-fit: contain;">
+                <figcaption style="margin-top: 10px; font-size: 14px; color: #555; text-align: left;">
+                  <strong>(a). <em>Video pivotal inversion pipeline</em></strong>. 
+                  Our pipeline comprises two key components: multi-frame null-text optimization and 
+                  spatialtemporal decoupled guidance, which are integrated into the standard pivotal inversion pipeline.
+                </figcaption>
+              </figure>
+            </div>
+            <!-- Second Image with Caption -->
+            <div class="column is-4" style="text-align: left; display: flex; flex-direction: column; justify-content: center;"> <!-- 居中 -->
+              <figure style="text-align: left;">
+                <img src="static/images/4_editing_pipeline_v0.9.jpg" 
+                     alt="Model Overview 2" 
+                     style="width: 100%; height: auto; object-fit: contain;">
+                <figcaption style="margin-top: 10px; font-size: 14px; color: #555; text-align: left;">
+                  <strong>(b). <em>Our video editing pipeline</em></strong>. 
+                  The SA-I and SA-II maintain the complicated spatial-temporal layout and enhance fidelity,
+                  while the cross-attention control introduces editing guidance based
+                  on the editing prompts.
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+          <!-- General description -->
+          <div style="margin-top: 20px; text-align: left;">
+            <p style="font-size: 16px; color: #333;">
+              Figure 2. <strong><em>The two stages in our VideoDirector.</em></strong> 
+              Video Pivotal Inversion in <strong>(a)</strong>; 
+              Attention Control for Video Editing in <strong>(b)</strong>.
+              
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper motivation -->
 
 
 <!-- Main Videos-->
@@ -273,7 +372,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-">
-          <h2 class="title is-3 hr-lines"> Editing Results </h2>
+          <h2 class="title is-3 hr-lines"> More Editing Results </h2>
           <div style="display: flex;">
             <div class="column">
               <!-- <video preload="auto"poster="" id="video11" autoplay controls muted loop width="90%">  -->
@@ -940,7 +1039,7 @@ year={2024}
       autoplay: 17500,
       hoverpause: true
     }).mount();
-    let video_num = 4;
+    let video_num = 6;
     glide.on('run', () => {
       var index = glide.index;
       for(var i = 0; i < video_num; i++) {
