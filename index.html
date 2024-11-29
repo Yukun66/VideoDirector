@@ -4,27 +4,27 @@
   <meta charset="utf-8">
   <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
   <!-- Replace the content tag with appropriate information -->
-  <meta name="description" content="RAVE is a zero-shot, lightweight, and fast framework for text-guided video editing, supporting videos of any length utilizing text-to-image pretrained diffusion models.">
-  <meta property="og:title" content="RAVE: Randomized Noise Shuffling for Fast and Consistent Video Editing with Diffusion Models"/>
-  <meta property="og:description" content="RAVE is a zero-shot, lightweight, and fast framework for text-guided video editing, supporting videos of any length utilizing text-to-image pretrained diffusion models."/>
-  <meta property="og:url" content="https://rave-video.github.io/"/>
+  <meta name="description" content="VideoDirector is a video editing method that utilizes T2V models directly, incorporating our proposed guidance and attention control modules.">
+  <meta property="og:title" content="VideoDirector: Precise Video Editing via Text-to-Video Models"/>
+  <meta property="og:description" content="VideoDirector is a video editing method that utilizes T2V models directly, incorporating our proposed guidance and attention control modules."/>
+  <meta property="og:url" content="https://VideoDirector.github.io/"/>
   <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
   <meta property="og:image" content="static/image/your_banner_image.png" />
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
 
 
-  <meta name="twitter:title" content="RAVE: Randomized Noise Shuffling for Fast and Consistent Video Editing with Diffusion Models">
-  <meta name="twitter:description" content="RAVE is a zero-shot, lightweight, and fast framework for text-guided video editing, supporting videos of any length utilizing text-to-image pretrained diffusion models.">
+  <meta name="twitter:title" content="VideoDirector: Precise Video Editing via Text-to-Video Models">
+  <meta name="twitter:description" content="VideoDirector is a video editing method that utilizes T2V models directly, incorporating our proposed guidance and attention control modules.">
   <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
   <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
   <meta name="twitter:card" content="summary_large_image">
   <!-- Keywords for your paper to be indexed by-->
-  <meta name="keywords" content="Text2Image Video Editing, Stable Diffusion">
+  <meta name="keywords" content="Text to Video Editing, Video Diffusion models">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-  <title>RAVE: Randomized Noise Shuffling for Fast and Consistent Video Editing with Diffusion Models</title>
+  <title>VideoDirector: Precise Video Editing via Text-to-Video Models</title>
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
   rel="stylesheet">
 
@@ -64,30 +64,31 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="xtitle is-1 publication-title" style="    font-size: 200%; font-weight: 800;">RAVE: Randomized Noise Shuffling for Fast and Consistent Video Editing with Diffusion Models</h1>
+            <h1 class="xtitle is-1 publication-title" style="    font-size: 200%; font-weight: 800;">VideoDirector: Precise Video Editing via Text-to-Video Models</h1>
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
-              <span class="author-block"><a href="https://karaozgur.com/" target="_blank">Ozgur Kara</a><sup>1*</sup></span>
-              <span class="author-block"><a href="https://bariscankurtkaya.github.io/" target="_blank">Bariscan Kurtkaya</a><sup>2*</sup></span>
-              <span class="author-block"><a href="https://sites.google.com/view/hidir-yesiltepe" target="_blank">Hidir Yesiltepe</a><sup>4</sup></span>
-              <span class="author-block"><a href="https://scholar.google.com/citations?hl=en&user=8kA3eDwAAAAJ" target="_blank">James M. Rehg</a><sup>1,3</sup></span>
-              <span class="author-block"><a href="https://scholar.google.com/citations?user=qzczdd8AAAAJ&hl=en" target="_blank">Pinar Yanardag</a><sup>4</sup></span>
+              <span class="author-block"><a href="https://scholar.google.co.uk/citations?user=_IKVeo4AAAAJ&hl=en" target="_blank">Yukun Wang</a><sup>1</sup></span>
+              <span class="author-block"><a href="https://scholar.google.co.uk/citations?user=gbBAujsAAAAJ&hl=en" target="_blank">Longguang Wang</a><sup>1</sup></span>
+              <span class="author-block"><a href="_blank" target="_blank">Zhiyuan Ma</a><sup>2</sup></span>
+              <span class="author-block"><a href="_blank" target="_blank">Qibin Hu</a><sup>1</sup></span>
+              <span class="author-block"><a href="https://kevinkaixu.net/" target="_blank">Kai Xu</a><sup>3</sup></span>
+              <span class="author-block"><a href="https://scholar.google.com/citations?user=WQRNvdsAAAAJ&hl=en" target="_blank">Yulan Guo</a><sup>1</sup></span>
             </div>
 
             <div class="is-size-5 publication-authors">
-              <span class="author-block"><sup>1</sup>Georgia Institute of Technology</span>
-              <span class="author-block"><sup>2</sup>KUIS AI Center</span>
-              <span class="author-block"><sup>3</sup>University of Illinois Urbana-Champaign</span>
-              <span class="author-block"><sup>4</sup>Virginia Tech</span>
-              <span class="author-block"></span><br><b>CVPR 2024 (Highlight)</b></span>
-              <span class="eql-cntrb"><small><br> <sup>*</sup>Joint co-author</small></span>
+              <span class="author-block"><sup>1</sup>Sun Yat-sen University</span>
+              <span class="author-block"><sup>2</sup>Tsinghua University</span>
+              <span class="author-block"><sup>3</sup>National University of Defense Technology</span>
+              <!--<span class="eql-cntrb"><small><br> <sup>*</sup>Corresponding author</small></span>-->
+              <!--<span class="author-block"></span><br><b>CVPR 2024 (Highlight)</b></span>-->
+              <!--<span class="eql-cntrb"><small><br> <sup>*</sup>Joint co-author</small></span>-->
             </div>
 
             <div class="column has-text-centered">
               <div class="publication-links">
                     <!-- Arxiv PDF link -->
                 <span class="link-block">
-                  <a href="static/pdfs/RAVE.pdf" target="_blank"
+                  <a href="https://arxiv.org/abs/2411.17592" target="_blank"
                   class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                     <i class="fas fa-file-pdf"></i>
@@ -97,7 +98,7 @@
               </span>
 
               <!-- Supplementary PDF link -->
-              <span class="link-block">
+              <!--<span class="link-block">
                 <a href="supp/supp.html" target="_blank"
                 class="external-link button is-normal is-rounded is-dark">
                 <span class="icon">
@@ -105,21 +106,21 @@
                 </span>
                 <span>Supplementary</span>
               </a>
-            </span>
+            </span>-->
 
             <!-- Github link -->
              <!-- Github link -->
             <span class="link-block">
-              <a href="https://github.com/RehgLab/RAVE" target="_blank"
+              <a href="_blank" target="_blank"
               class="external-link button is-normal is-rounded is-dark">
               <span class="icon">
                 <i class="fab fa-github"></i>
               </span>
-              <span>Code</span>
+              <span>Code (Coming soon)</span>
             </a>
           </span>
 
-          <span class="link-block">
+          <!--<span class="link-block">
             <a href="https://github.com/RehgLab/RAVE" target="_blank"
             class="external-link button is-normal is-rounded is-dark">
             <span class="icon">
@@ -127,21 +128,21 @@
             </span>
             <span>Dataset (Coming soon)</span>
           </a>
-        </span>
+        </span>-->
 
           <!-- Huggingface link -->
           <span class="link-block">
-            <a href="https://huggingface.co/spaces/ozgurkara/RAVE" target="_blank"
+            <a href="_blank" target="_blank"
             class="external-link button is-normal is-rounded is-dark">
             <span class="icon">
               <img src="static/images/hf-logo.svg" alt="Huggingface logo" width="20" height="20">
             </span>
-            <span>Demo</span>
+            <span>Demo (Coming soon)</span>
             </a>
           </span>
 
           <!-- ArXiv abstract Link -->
-          <span class="link-block">
+          <!--<span class="link-block">
             <a href="https://arxiv.org/abs/2312.04524" target="_blank"
               class="external-link button is-normal is-rounded is-dark">
             <span class="icon">
@@ -149,7 +150,7 @@
             </span>
             <span>arXiv</span>
                 </a>
-              </span>
+              </span>-->
             </div>
           </div>
         </div>
